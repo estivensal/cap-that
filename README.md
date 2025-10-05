@@ -6,7 +6,7 @@ CapThat! is a minimalist Chrome MV3 extension that lets you capture images en ma
 
 Place your demo file at `public/demo.webm` and open it from the repository:
 
-- [Demo video (webm)](public/demo.webm)
+- [Demo video (webm)](/demo.webm)
 
 If Git hosts inline playback, it will render directly; otherwise download and play locally.
 
