@@ -2,15 +2,6 @@
 
 CapThat! is a minimalist Chrome MV3 extension that lets you capture images en masse while browsing and assemble them into an exportable mood‑board.
 
-### Demo
-
-<video src="./public/demo.mp4" controls preload="metadata" style="max-width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px;"></video>
-
-If it still doesn't render inline on your host:
-
-- Open the raw file URL (e.g., on GitHub: click the file → "Raw") and use that absolute URL in the `src`.
-- Ensure the video is encoded with H.264/AAC (MP4 container) for broad browser support.
-
 ### Features
 
 - Capture the currently hovered image with a single click
