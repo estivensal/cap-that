@@ -1445,3 +1445,61 @@ If you want the README to include screenshots or a GIF alongside the video, I ca
 
 ---
 
+_**User (2025-10-05 17:37Z)**_
+
+is there any way we can set the video in the readme file so it's visible there?
+
+---
+
+_**Assistant (default)**_
+
+<think><details><summary>Thought Process</summary>**Considering video options for README**
+
+The user wants to show a video in the README. I can use the HTML5 video tag in markdown for this, like `<video src="/demo.webm" controls>`. The user has the demo video in their repository. I wonder about GitHub's support—GitHub might not autoplay inline videos via markdown, especially with WebM. It seems they do support MP4 and MOV better. Since there's some uncertainty, it might be worth converting to MP4 to ensure compatibility. I'll include a note about browser support too!
+**Updating README for video support**
+
+I can update the README to include an HTML video tag and a fallback link, suggesting an MP4 alternative for better GitHub compatibility. I'll modify the README by inserting a video block under the Demo section. The video tag will use `/demo.webm` and, if available, `/demo.mp4`. I need to provide clear instructions so users know to click the link if the video isn’t visible. I’ll also include a brief status update before applying the patch. Let’s implement this!</details></think>
+
+---
+
+I'll embed the demo directly in the README using an HTML5 video tag with a fallback link, so it renders inline on platforms that support it. Now updating the README.
+
+---
+
+Tool use: **apply_patch**
+
+<details>
+        <summary>Apply patch for /home/estiven/Desktop/overclock/cap-that/README.md</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: /home/estiven/Desktop/overclock/cap-that/README.md
+@@
+-Place your demo file at `public/demo.webm` and open it from the repository:
+-
+-- [Demo video (webm)](/demo.webm)
+-
+-If Git hosts inline playback, it will render directly; otherwise download and play locally.
++Place your demo file at `public/demo.webm` and it will render inline below on most hosts:
++
++<video src="/demo.webm" controls preload="metadata" style="max-width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px;">
++  Your browser does not support the video tag. You can download the video
++  <a href="/demo.webm">here</a>.
++  
++</video>
++
++If your platform doesn’t display WebM inline, convert to MP4 and add `/demo.mp4`, then use:
++
++<video src="/demo.mp4" controls preload="metadata" style="max-width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px;"></video>
+*** End Patch
+```
+
+---
+
+- I embedded the demo inline using an HTML5 video tag in `README.md`. With your `demo.webm` at the repo root (as you have it), it should render on platforms that allow HTML in README (including GitHub). There’s also a fallback link plus guidance for MP4 if needed.
+
+- If the video still doesn’t render, it’s usually due to host restrictions; in that case, consider adding a GIF preview or linking to an external player.
+
+---
+
