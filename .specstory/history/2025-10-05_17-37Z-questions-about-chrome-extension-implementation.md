@@ -1503,3 +1503,57 @@ Tool use: **apply_patch**
 
 ---
 
+_**User (2025-10-05 17:37Z)**_
+
+i uipdated the video to mp4 but it's still not displaying, why?
+
+---
+
+_**Assistant (default)**_
+
+<think><details><summary>Thought Process</summary>**Explaining README video issues**
+
+I need to clarify why an MP4 isn't displaying in the README file. GitHub allows HTML video embedding with a relative path, but it mustn’t have a leading slash. Using a path like /public/demo.mp4 won't work. The README is rendered on GitHub, and the path shouldn't point to the site root. I should use a relative path like ./public/demo.mp4 or link to the raw file with ?raw=1. Also, some browsers need specific codecs to display videos correctly. I’ll suggest using the GitHub raw link and a fallback image.
+**Addressing video link issues**
+
+I could link to the MP4 directly in the markdown for GitHub, which automatically renders a video player. But there might be issues with embedding due to Content Security Policy rules. The main problem seems to be the file path; using /public/demo.mp4 is incorrect. I should change it to ./public/demo.mp4 or move the video to the repo root and reference ./demo.mp4. I'll provide the user with clear instructions to update their README, including using H.264 and AAC for codecs, and suggest providing a fallback option.</details></think>
+
+---
+
+I'll correct the README video path to a relative path so it renders on Git platforms, and also add a fallback raw link note in case codecs or CSP block playback.
+
+---
+
+Tool use: **apply_patch**
+
+<details>
+        <summary>Apply patch for /home/estiven/Desktop/overclock/cap-that/README.md</summary>
+      
+
+```diff
+*** Begin Patch
+*** Update File: /home/estiven/Desktop/overclock/cap-that/README.md
+@@
+-<video src="/public/demo.mp4" controls preload="metadata" style="max-width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px;"></video>
++<video src="./public/demo.mp4" controls preload="metadata" style="max-width:100%; height:auto; border:1px solid #e5e7eb; border-radius:8px;"></video>
++
++If it still doesn't render inline on your host:
++
++- Open the raw file URL (e.g., on GitHub: click the file → "Raw") and use that absolute URL in the `src`.
++- Ensure the video is encoded with H.264/AAC (MP4 container) for broad browser support.
+*** End Patch
+```
+
+---
+
+Most Git hosts don’t serve README-relative absolute paths like /public/demo.mp4; they expect relative links within the repo. I switched it to ./public/demo.mp4.
+
+If it still doesn’t display:
+- Codec: Ensure the MP4 is H.264 video + AAC audio. Some browsers won’t inline-play unsupported codecs.
+- Host restrictions: Some platforms block inline video in README for security. Use the file’s “Raw” URL as the src instead, or keep a clickable link.
+- Cache: If viewing on GitHub, it may cache README; refresh or open the file view directly to verify playback.
+
+Want me to swap to a small animated GIF thumbnail that always renders, linking to the MP4?
+
+---
+
