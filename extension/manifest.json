@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "CapThat!",
+  "version": "0.1.0",
+  "description": "Quickly capture hovered images into a 10-slot mood board and export as JPEG.",
+  "action": {
+    "default_title": "CapThat!",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["activeTab", "storage", "notifications", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "service-worker.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}

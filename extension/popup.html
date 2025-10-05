@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CapThat!</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">CapThat!</header>
+      <div class="controls">
+        <button id="capBtn">Cap!</button>
+        <button id="exportBtn">Export JPEG</button>
+        <button id="clearBtn">Clear Cap Board</button>
+      </div>
+      <div id="grid" class="grid" aria-live="polite"></div>
+      <footer class="footer">
+        <span id="countLabel">0 / 10</span>
+      </footer>
+    </div>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
